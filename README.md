@@ -1,3 +1,5 @@
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y0F020WAJC)
+
 # PSXMCL
 
 PSXMCL is a small .NET library for reading, editing, and writing PlayStation memory card data, with a focused Final Fantasy Tactics save-data layer on top.

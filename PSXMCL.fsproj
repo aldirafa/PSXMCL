@@ -8,6 +8,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PSXMCL</PackageId>
     <Version>0.1.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>Aldian Hudaya</Authors>
     <Description>PSX Memory Card and Final Fantasy Tactics save-data library.</Description>
     <PackageTags>playstation;psx;final-fantasy-tactics;save-editor;memory-card</PackageTags>

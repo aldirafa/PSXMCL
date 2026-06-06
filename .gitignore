@@ -36,3 +36,4 @@ obj/**
 *.tar.gz
 *.7z
 *.rar
+nuget.config

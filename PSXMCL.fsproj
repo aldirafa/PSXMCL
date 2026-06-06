@@ -5,7 +5,7 @@
     <OutputType>Library</OutputType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsPackable>true</IsPackable>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PSXMCL</PackageId>
     <Version>0.1.0</Version>
     <Authors>Aldian Hudaya</Authors>

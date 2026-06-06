@@ -1,0 +1,29 @@
+name: Publish to NuGet
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers the workflow whenever you push a tag starting with 'v' (e.g., v0.1.0)
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # 👈 CRITICAL: This allows OIDC authentication with NuGet
+      contents: read
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x' # Match this to your library's .NET version
+
+      - name: Pack Library
+        run: dotnet pack --configuration Release
+
+      - name: Publish to NuGet
+        # Notice we don't pass an API Key here! Trusted Publishing handles it.
+        run: dotnet nuget push "bin/Release/*.nupkg" --source https://api.nuget.org/v3/index.json

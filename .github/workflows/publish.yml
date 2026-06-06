@@ -3,27 +3,30 @@ name: Publish to NuGet
 on:
   push:
     tags:
-      - 'v*' # Triggers the workflow whenever you push a tag starting with 'v' (e.g., v0.1.0)
+      - 'v*'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write # 👈 CRITICAL: This allows OIDC authentication with NuGet
+      id-token: write
       contents: read
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2 # Fixed deprecation warning
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v4.3.0 # Fixed deprecation warning
         with:
-          dotnet-version: '10.0.x' # Match this to your library's .NET version
+          dotnet-version: '10.0.x' # Updated to match your net10.0 TargetFramework
+
+      - name: Build Project
+        run: dotnet build --configuration Release
 
       - name: Pack Library
-        run: dotnet pack --configuration Release
+        run: dotnet pack --configuration Release --no-build
 
       - name: Publish to NuGet
-        # Notice we don't pass an API Key here! Trusted Publishing handles it.
-        run: dotnet nuget push "bin/Release/*.nupkg" --source https://api.nuget.org/v3/index.json
+        # Using a recursive wildcard (**) finds the package no matter what folder net10.0 is in
+        run: dotnet nuget push "**/*.nupkg" --source https://api.nuget.org/v3/index.json

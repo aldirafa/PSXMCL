@@ -9,17 +9,17 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
+      id-token: write  # Crucial for OIDC token issuance
       contents: read
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4.2.2 # Fixed deprecation warning
+        uses: actions/checkout@v4.2.2
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4.3.0 # Fixed deprecation warning
+        uses: actions/setup-dotnet@v4.3.0
         with:
-          dotnet-version: '10.0.x' # Updated to match your net10.0 TargetFramework
+          dotnet-version: '10.0.x'
 
       - name: Build Project
         run: dotnet build --configuration Release
@@ -27,6 +27,12 @@ jobs:
       - name: Pack Library
         run: dotnet pack --configuration Release --no-build
 
+      - name: NuGet Login (OIDC to temp API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: oichidan  # Your NuGet username linked to the repository policy
+
       - name: Publish to NuGet
-        # Using a recursive wildcard (**) finds the package no matter what folder net10.0 is in
-        run: dotnet nuget push "**/*.nupkg" --source https://api.nuget.org/v3/index.json
+        # Pushes using the temporary API key retrieved from the login step
+        run: dotnet nuget push "**/*.nupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

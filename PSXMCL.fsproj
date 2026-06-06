@@ -11,8 +11,8 @@
     <Authors>Aldian Hudaya</Authors>
     <Description>PSX Memory Card and Final Fantasy Tactics save-data library.</Description>
     <PackageTags>playstation;psx;final-fantasy-tactics;save-editor;memory-card</PackageTags>
-    <PackageProjectUrl>https://example.com/your-project</PackageProjectUrl>
-    <RepositoryUrl>https://example.com/your-repository</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/aldirafa/PSXMCL</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/aldirafa/PSXMCL</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <WarnOn>3390</WarnOn>

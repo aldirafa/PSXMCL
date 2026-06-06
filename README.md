@@ -9,16 +9,6 @@ The core pieces are:
 - `FinalFantasyTacticsEnums` for enum-oriented edit helpers (palette, gender flags, equipment/ability slots, and typed IDs).
 - `FinalFantasyTacticsStrings` for converting parsed FFT values into displayable text.
 
-## Package Notes
-
-This repository is set up as a NuGet-packable library. Replace the placeholder metadata in `PSXMCL.fsproj` before publishing:
-
-- author / company
-- repository URL
-- project URL
-- package version
-- any other package identity fields you want to publish publicly
-
 XML documentation is enabled, so consumers should see IntelliSense documentation in IDEs when the package is referenced.
 
 ## Quick Start

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>PSXMCL</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Aldian Hudaya</Authors>
+    <Description>PSX Memory Card and Final Fantasy Tactics save-data library.</Description>
+    <PackageTags>playstation;psx;final-fantasy-tactics;save-editor;memory-card</PackageTags>
+    <PackageProjectUrl>https://example.com/your-project</PackageProjectUrl>
+    <RepositoryUrl>https://example.com/your-repository</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <WarnOn>3390</WarnOn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="MemoryCard.fs" />
+    <Compile Include="FinalFantasyTactics.fs" />
+    <Compile Include="FinalFantasyTactics.Enums.fs" />
+    <Compile Include="FinalFantasyTactics.Strings.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+</Project>
